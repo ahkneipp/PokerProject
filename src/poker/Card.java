@@ -12,6 +12,11 @@ public class Card
     {
         
     }
+    public Card(char suitId, char faceId)
+    {
+        this.suitId = suitId;
+        this.faceId = faceId;
+    }
     private String cardName = null;
     private char suitId = 0;
     private char faceId = 0;
