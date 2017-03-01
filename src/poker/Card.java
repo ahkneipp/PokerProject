@@ -34,7 +34,7 @@ public class Card
     {
     	return this.faceId;
     }
-    
+    @Override
     public String toString()
     {
     	return this.getCardName();
