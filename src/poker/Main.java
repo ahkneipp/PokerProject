@@ -23,5 +23,7 @@ public static void main(String args[] ){
         //Have a translater class ready 
         //so that the user can read what card they got
 	deckGen.cardGen();
+	GamePlay game = new GamePlay();
+	game.test();
 }
 }

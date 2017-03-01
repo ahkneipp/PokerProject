@@ -29,6 +29,19 @@ public class Deck
             }
         }
     }
+    public void dealTheCards()
+    {
+    	initDeck();
+    	this.shuffle();
+    	int tempPoint =0;
+    	//this loop will adds the top five cards into the top
+		for(int x =0; x<5; x++)
+		{
+			System.out.println(cards[x]);
+			tempPoint = x;
+		}
+		pointer = tempPoint;
+	}
 
     public void initDeck()
     {
@@ -100,6 +113,8 @@ public class Deck
         }
     }
 
-    private Card[] cards = new Card[52];
+    private static Card[] cards = new Card[52];
     private Random shuffler = new Random();
+    private static int pointer = 0;
+    private static Card[] topFive = new Card[5];
 }
