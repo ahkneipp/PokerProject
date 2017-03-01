@@ -18,43 +18,43 @@ public class CardTranslate
     	switch(faceId)
     	{
     	case 'A':
-    		retval +="Ace of ";
+    		retval ="Ace of ";
     		break;
     	case '2':
-    		retval +="Two of ";    		
+    		retval ="Two of ";    		
     		break;
     	case '3':
-    		retval +="Three of ";    		
+    		retval ="Three of ";    		
     		break;
     	case '4':
-    		retval +="Four of ";	
+    		retval ="Four of ";	
     		break;
     	case '5':
-    		retval +="Five of ";	
+    		retval ="Five of ";	
     		break;
     	case '6':
-    		retval +="Six of ";	
+    		retval ="Six of ";	
     		break;
     	case '7':
-    		retval +="Seven of ";	
+    		retval ="Seven of ";	
     		break;
     	case '8':
-    		retval +="Eight of ";	
+    		retval ="Eight of ";	
     		break;
     	case '9':
-    		retval +="Nine of ";
+    		retval ="Nine of ";
     		break;
     	case 'T':
-    		retval +="Ten of ";
+    		retval ="Ten of ";
     		break;
     	case 'J':
-    		retval +="Jack of ";
+    		retval ="Jack of ";
     		break;
     	case 'Q':
-    		retval +="Queen of ";
+    		retval ="Queen of ";
     		break;
     	case 'K':
-    		retval +="King of ";
+    		retval ="King of ";
     		break;
     	}
     	switch(suitId)
