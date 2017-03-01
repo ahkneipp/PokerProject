@@ -95,7 +95,7 @@ public class Deck
                     faceId = 'K';
                     break;
                 }
-                cards[(i * 13) + j] = new Card(suitId,faceId );
+                cards[(i * 13) + j] = new Card(suitId, faceId);
             }
         }
     }
