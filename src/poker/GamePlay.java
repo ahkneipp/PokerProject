@@ -8,8 +8,14 @@ public GamePlay(){
 	
 }
 public  void test(){
+	Card[] displayCards = new Card[5];
 	//just show the top five cards
 	Deck deck = new Deck();
-	deck.dealTheCards();
+	displayCards = deck.dealTheCards();
+	
+//	for(int x =0; x<5; x++){
+//		System.out.println(displayCards[x]);
+//	}
 }
+
 }

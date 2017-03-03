@@ -22,8 +22,10 @@ public static void main(String args[] ){
         //After this the deck will be created 
         //Have a translater class ready 
         //so that the user can read what card they got
-	deckGen.cardGen();
-	GamePlay game = new GamePlay();
-	game.test();
+//	deckGen.cardGen();
+//	GamePlay game = new GamePlay();
+//	game.test();
+	Hand test = new Hand();
+	test.viewHand();
 }
 }

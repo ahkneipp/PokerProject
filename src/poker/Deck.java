@@ -29,18 +29,21 @@ public class Deck
             }
         }
     }
-    public void dealTheCards()
+    public Card[] dealTheCards()
     {
+    	Card[] fiveCards = new Card[5];
     	initDeck();
     	this.shuffle();
     	int tempPoint =0;
     	//this loop will adds the top five cards into the top
 		for(int x =0; x<5; x++)
 		{
-			System.out.println(cards[x]);
+			
+			fiveCards[x] = cards[x];
 			tempPoint = x;
 		}
 		pointer = tempPoint;
+		return fiveCards;
 	}
 
     public void initDeck()
