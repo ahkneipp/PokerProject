@@ -42,7 +42,7 @@ public class Deck
 			fiveCards[x] = cards[x];
 			tempPoint = x;
 		}
-		pointer = tempPoint;
+		
 		return fiveCards;
 	}
 

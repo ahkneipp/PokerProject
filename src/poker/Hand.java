@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Hand {
 	
 	public static Card[] five = new Card[5];
+	public static Card[] temp = new Card[2];
 	Deck deck = new Deck();
 	int pointer = 0;
 public Hand (){
@@ -32,6 +33,9 @@ public void rejectCards(){
 		//IF no calculate their score
 	}
 	else{
+		System.out.println("Which card would you like to reject");
+		int awn = scan.nextInt();
+		awn = awn - 1;
 		
 	}
 }
