@@ -15,8 +15,9 @@ public void viewHand(){
 	dealHand();
 	for (int x = 0; x<5; x++)
 System.out.println(five[x]);
-	
+rejectCards();	
 }
+
 public void dealHand(){
 	Deck deck = new Deck();
 	five =deck.dealTheCards();
