@@ -31,7 +31,7 @@ public class Deck
     }
     public Card[] dealTheCards()
     {
-    	Card[] fiveCards = new Card[5];
+    	
     	initDeck();
     	this.shuffle();
     	int tempPoint =0;
@@ -42,10 +42,19 @@ public class Deck
 			fiveCards[x] = cards[x];
 			tempPoint = x;
 		}
+		pointer = tempPoint;
 		
 		return fiveCards;
 	}
-
+    public Card[] deleteCards(int point, int index){
+    	fiveCards[index] = cards[point+1];
+    	return fiveCards;
+    }
+    
+    public int returnPointer(){
+    	return pointer;
+    }
+    
     public void initDeck()
     {
         char suitId =0;
@@ -115,7 +124,7 @@ public class Deck
             }
         }
     }
-
+  private static  Card[] fiveCards = new Card[5];
     private static Card[] cards = new Card[52];
     private Random shuffler = new Random();
     private static int pointer = 0;
