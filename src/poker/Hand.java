@@ -25,7 +25,7 @@ public void viewHand(){
 	for (int x = 0; x<5; x++)
 System.out.println(x+1+") "+five[x]);
 	//rejectCards will choose which cards you want to reject
-rejectCards();	
+//rejectCards();//TODO	
 }
 //Gets cards for your hand
 public void dealHand(){

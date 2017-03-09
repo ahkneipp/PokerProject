@@ -4,10 +4,18 @@ public class HandScorer
 {
     public static int scoreHand(Hand hand)
     {
+    	sortHand(hand.getHand());
+    	int[] matchInfo = checkMatches(hand.getHand());
+    	hand.viewHand();
+    	System.out.print("Match info: " );
+    	for(int i = 0; i < 5; i ++)
+    	{
+    		System.out.print(matchInfo[i] + ", ");
+    	}
+    	System.out.println();
         return 0;
     }
-    //use this url to finish your quicksort.
-    //https://www.khanacademy.org/computing/computer-science/algorithms/quick-sort/a/overview-of-quicksort
+
     public static void sortHand(Card[] cards)
     {     
     	for(int j = 0; j < cards.length - 1; j++)
@@ -16,12 +24,28 @@ public class HandScorer
 	        {
 	        	if(CardTranslate.getCardVal(cards[i+1]) < CardTranslate.getCardVal(cards[i]))
 	        	{
-	        		swap(cards, i , i+1);
-	        		
+	        		swap(cards, i , i+1);	        		
 	        	}
 	        }
+    	}   
+    }
+    
+    private static int[] checkMatches(Card[] cards)
+    {
+    	int matchIndex = 0;
+    	int[] matchInfo = {0,0,0,0,0};
+    	for(int i = 0; i < cards.length-1; i++)
+    	{
+    		if(cards[i].getFaceId() == cards[i+1].getFaceId())
+    		{
+    			matchInfo[matchIndex]++;
+    		}
+    		else
+    		{
+    			matchIndex++;
+    		}
     	}
-   
+    	return matchInfo;
     }
     private static void swap(Card[] cards, int i, int j)
     {

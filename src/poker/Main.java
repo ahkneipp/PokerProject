@@ -27,5 +27,6 @@ public static void main(String args[] ){
 //	game.test();
 	Hand test = new Hand();
 	test.viewHand();
+	HandScorer.scoreHand(test);
 }
 }
