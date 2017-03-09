@@ -8,34 +8,18 @@ public class HandScorer
     }
     //use this url to finish your quicksort.
     //https://www.khanacademy.org/computing/computer-science/algorithms/quick-sort/a/overview-of-quicksort
-    private static Card[] sortHand(Card[] cards)
-    {        
-        if (cards.length ==1)
-            return cards;
-        else
-        {
-            int pivot = cards.length -1;
-            for(int i = 0; i < cards.length; i++)
-            {
-                if(CardTranslate.getCardVal(cards[i]) < CardTranslate.getCardVal(cards[pivot]))
-                {
-                    insertCard(cards, i, pivot - 1); 
-                    if(i > pivot)
-                    {
-                        pivot++;
-                    }
-                }
-                else
-                {
-                    insertCard(cards,i,pivot);
-                    if(pivot > i)
-                    {
-                        pivot--;
-                    }
-                }
-            }
-            return new Card[10]; //TODO makes the code compile
-        }
+    private static void sortHand(Card[] cards)
+    {     
+    	for(int j = 0; j < cards.length - 1; j++)
+    	{
+	        for(int i = 0;i < cards.length -j-2; i++)
+	        {
+	        	if(CardTranslate.getCardVal(cards[i]) < CardTranslate.getCardVal(cards[i+1]))
+	        	{
+	        		swap(cards, i , i+1);
+	        	}
+	        }
+    	}
     }
     private static void swap(Card[] cards, int i, int j)
     {
