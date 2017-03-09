@@ -40,6 +40,9 @@ public void rejectCards(){
 	String awnser = scan.nextLine();
 	if (awnser.equals("No")){
 		//IF no calculate their score
+		HandScorer hand = new HandScorer();
+		hand.sortHand(five);
+		viewHand();
 	}
 	else{
 		System.out.println("Which card would you like to reject (Type the number of the card).");
