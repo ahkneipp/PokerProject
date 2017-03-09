@@ -55,5 +55,13 @@ public void rejectCards(){
 		
 	}
 }
+/**
+ * @return
+ *      The array which holds the player's cards.
+ */
+public Card[] getHand()
+{
+    return this.five;
+}
 
 }
