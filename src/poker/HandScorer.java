@@ -12,7 +12,7 @@ public class HandScorer
     {     
     	for(int j = 0; j < cards.length - 1; j++)
     	{
-	        for(int i = 0;i < cards.length -j-2; i++)
+	        for(int i = 0;i < cards.length -j-1; i++)
 	        {
 	        	if(CardTranslate.getCardVal(cards[i+1]) < CardTranslate.getCardVal(cards[i]))
 	        	{
