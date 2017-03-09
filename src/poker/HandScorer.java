@@ -14,7 +14,7 @@ public class HandScorer
     	{
 	        for(int i = 0;i < cards.length -j-2; i++)
 	        {
-	        	if(CardTranslate.getCardVal(cards[i]) < CardTranslate.getCardVal(cards[i+1]))
+	        	if(CardTranslate.getCardVal(cards[i+1]) < CardTranslate.getCardVal(cards[i]))
 	        	{
 	        		swap(cards, i , i+1);
 	        	}
