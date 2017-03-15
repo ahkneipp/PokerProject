@@ -30,6 +30,25 @@ public class HandScorer
     	}   
     }
     
+    private boolean checkStraight()
+    {
+    	
+    	return false;
+    }
+    
+    private boolean checkFlush (Card[] cards)
+    {
+    	char flushChar = cards[0].getSuitId();
+    	for(Card c: cards)
+    	{
+    		if(c.getFaceId() != flushChar)
+    		{
+    			return false;
+    		}
+    	}
+    	return true;
+    }
+    
     private static int[] checkMatches(Card[] cards)
     {
     	int matchIndex = 0;
