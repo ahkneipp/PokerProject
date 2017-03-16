@@ -26,7 +26,9 @@ public static void main(String args[] ){
 //	GamePlay game = new GamePlay();
 //	game.test();
 	Hand test = new Hand();
+	//test.dealHand();
 	test.viewHand();
+	System.out.print("\n\n\n\n\n\n\n");
 	HandScorer.scoreHand(test);
 }
 }
