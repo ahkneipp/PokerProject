@@ -13,6 +13,10 @@ public class HandScorer
     		System.out.print(matchInfo[i] + ", ");
     	}
     	System.out.println();
+    	System.out.println("Flush: " + checkFlush(hand.getHand()));
+    	System.out.println("Straight: " + checkStraight(hand.getHand()));
+    	System.out.println("Royal: " + checkRoyal(hand.getHand()));
+
         return 0;
     }
 
@@ -30,13 +34,59 @@ public class HandScorer
     	}   
     }
     
-    private boolean checkStraight()
+    private static boolean checkStraight(Card[] cards)
     {
-    	
-    	return false;
+    	boolean specialCase = false;
+    	int prevCardVal = 0;
+    	if(cards[0].getFaceId() == 'A')
+    	{
+    		specialCase = true;
+    	}
+    	if(!specialCase)
+    	{
+    		for(Card c: cards)
+    		{
+    			if(CardTranslate.getCardVal(c) != prevCardVal + 1)
+    			{
+    				return false;
+    			}
+    			prevCardVal = CardTranslate.getCardVal(c);
+    		}
+    		return true;
+    	}
+    	else
+    	{
+    		for(Card c: cards)
+    		{
+    			int cardVal = CardTranslate.getCardVal(c);
+    			if(cardVal != prevCardVal - 1)
+    			{
+    				if(cardVal == 13 && cards[0].getFaceId() == 'A')
+    				{
+    					break;
+    				}
+    				return false;
+    			}
+    			prevCardVal = cardVal;
+    		}
+    		return true;
+    	}
     }
     
-    private boolean checkFlush (Card[] cards)
+    private static boolean checkRoyal(Card[] cards)
+    {
+    	for(Card c: cards)
+    	{
+    		if(c.getFaceId() != 'A' && c.getFaceId() != 'K' && c.getFaceId() != 'Q' &&
+    				c.getFaceId() != 'J' && c.getFaceId() != 'T')
+    		{
+    			return false;
+    		}
+    	}
+    	return true;
+    }
+    
+    private static boolean checkFlush (Card[] cards)
     {
     	char flushChar = cards[0].getSuitId();
     	for(Card c: cards)
