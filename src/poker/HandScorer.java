@@ -4,6 +4,17 @@ public class HandScorer
 {
     public static int scoreHand(Hand hand)
     {
+    	for(Card c:hand.getHand())
+    	{
+    		c.setSuitId('S');
+    	}
+    	hand.getHand()[0].setFaceId('A');
+    	hand.getHand()[1].setFaceId('T');
+    	hand.getHand()[2].setFaceId('J');
+    	hand.getHand()[3].setFaceId('Q');
+    	hand.getHand()[4].setFaceId('K');
+
+    	
     	sortHand(hand.getHand());
     	int[] matchInfo = checkMatches(hand.getHand());
     	hand.viewHand();
@@ -91,7 +102,7 @@ public class HandScorer
     	char flushChar = cards[0].getSuitId();
     	for(Card c: cards)
     	{
-    		if(c.getFaceId() != flushChar)
+    		if(c.getSuitId() != flushChar)
     		{
     			return false;
     		}

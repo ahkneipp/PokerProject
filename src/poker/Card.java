@@ -41,10 +41,12 @@ public class Card
     public void setSuitId(char newId)
     {
     	this.suitId = newId;
+    	this.cardName = CardTranslate.getNameFromIDs(this.suitId, this.faceId);
     }
-    public void getSuitId(char newId)
+    public void setFaceId(char newId)
     {
-    	this.suitId = newId;
+    	this.faceId = newId;
+    	this.cardName = CardTranslate.getNameFromIDs(this.suitId, this.faceId);
     }
     @Override
     public String toString()
