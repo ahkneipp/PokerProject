@@ -8,11 +8,11 @@ public class HandScorer
     	{
     		c.setSuitId('S');
     	}
-    	hand.getHand()[0].setFaceId('A');
-    	hand.getHand()[1].setFaceId('T');
-    	hand.getHand()[2].setFaceId('J');
-    	hand.getHand()[3].setFaceId('Q');
-    	hand.getHand()[4].setFaceId('K');
+    	hand.getHand()[0].setFaceId('2');
+    	hand.getHand()[1].setFaceId('3');
+    	hand.getHand()[2].setFaceId('4');
+    	hand.getHand()[3].setFaceId('5');
+    	hand.getHand()[4].setFaceId('6');
 
     	
     	sortHand(hand.getHand());
@@ -57,7 +57,7 @@ public class HandScorer
     	{
     		for(Card c: cards)
     		{
-    			if(CardTranslate.getCardVal(c) != prevCardVal + 1)
+    			if(prevCardVal != 0 && CardTranslate.getCardVal(c) != prevCardVal + 1)
     			{
     				return false;
     			}
@@ -70,11 +70,12 @@ public class HandScorer
     		for(Card c: cards)
     		{
     			int cardVal = CardTranslate.getCardVal(c);
-    			if(cardVal != prevCardVal - 1)
+    			if(cardVal != prevCardVal + 1)
     			{
-    				if(cardVal == 13 && cards[0].getFaceId() == 'A')
+    				if(cardVal == 10 && cards[0].getFaceId() == 'A')
     				{
-    					break;
+    					prevCardVal = cardVal;
+    					continue;
     				}
     				return false;
     			}
@@ -110,7 +111,7 @@ public class HandScorer
     	return true;
     }
     
-    private static int[] checkMatches(Card[] cards)
+    private static int[] checkMatches(Card[] cards)    
     {
     	int matchIndex = 0;
     	int[] matchInfo = {0,0,0,0,0};
