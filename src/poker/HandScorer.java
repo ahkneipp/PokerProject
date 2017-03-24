@@ -2,6 +2,18 @@ package poker;
 
 public class HandScorer 
 {
+	/*
+	 * Scoring information
+	 * Royal Flush: 250 - X
+	 * Straight Flush: 50 - X
+	 * Four of a kind: 25
+	 * Full house: 6
+	 * Flush: 5
+	 * Straight: 4 - X
+	 * 3 of a kind: 3
+	 * 2 pair: 2
+	 * Pair of Jacks or better: 1
+	 */
     public static int scoreHand(Hand hand)
     {
     	for(Card c:hand.getHand())
@@ -12,9 +24,7 @@ public class HandScorer
     	hand.getHand()[1].setFaceId('2');
     	hand.getHand()[2].setFaceId('2');
     	hand.getHand()[3].setFaceId('5');
-    	hand.getHand()[4].setFaceId('5');
-
-    	
+    	hand.getHand()[4].setFaceId('5');    	
     	sortHand(hand.getHand());
     	int[] matchInfo = getMatchInfo(hand.getHand());
     	hand.viewHand();
@@ -27,7 +37,24 @@ public class HandScorer
     	System.out.println("Flush: " + checkFlush(hand.getHand()));
     	System.out.println("Straight: " + checkStraight(hand.getHand()));
     	System.out.println("Royal: " + checkRoyal(hand.getHand()));
-
+    	if(checkStraight(hand.getHand()))
+    	{
+    		if(checkFlush(hand.getHand()))
+    		{
+    			if(checkRoyal(hand.getHand()))
+    			{
+    				return 250;//royal flush
+    			}
+    			else
+    			{
+    				return 50;//straight flush
+    			}
+    		}
+    		else
+    		{
+    			return 4; //straight
+    		}
+    	}
         return 0;
     }
 
