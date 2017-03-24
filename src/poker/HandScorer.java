@@ -8,15 +8,15 @@ public class HandScorer
     	{
     		c.setSuitId('S');
     	}
-    	hand.getHand()[0].setFaceId('2');
-    	hand.getHand()[1].setFaceId('3');
-    	hand.getHand()[2].setFaceId('4');
+    	hand.getHand()[0].setFaceId('A');
+    	hand.getHand()[1].setFaceId('2');
+    	hand.getHand()[2].setFaceId('2');
     	hand.getHand()[3].setFaceId('5');
-    	hand.getHand()[4].setFaceId('6');
+    	hand.getHand()[4].setFaceId('5');
 
     	
     	sortHand(hand.getHand());
-    	int[] matchInfo = checkMatches(hand.getHand());
+    	int[] matchInfo = getMatchInfo(hand.getHand());
     	hand.viewHand();
     	System.out.print("Match info: " );
     	for(int i = 0; i < 5; i ++)
@@ -111,7 +111,7 @@ public class HandScorer
     	return true;
     }
     
-    private static int[] checkMatches(Card[] cards)    
+    private static int[] getMatchInfo(Card[] cards)    
     {
     	int matchIndex = 0;
     	int[] matchInfo = {0,0,0,0,0};
@@ -123,11 +123,64 @@ public class HandScorer
     		}
     		else
     		{
-    			matchIndex++;
+    			matchIndex = i + 1;
     		}
     	}
     	return matchInfo;
     }
+    
+    private static MatchType checkHandMatches(Card[] hand)
+    {
+    	HandScorer.MatchType retVal = new HandScorer.MatchType();
+    	int[] matchInfo = getMatchInfo(hand);
+    	int matchIndex = 0;
+    	for(int i = 0; i < matchInfo.length; i++)
+    	{
+    		if(matchInfo[i] > 0)
+    		{
+    			retVal.matchCards[matchIndex] = hand[i].getFaceId();
+    			retVal.matchNumbers[matchIndex] = matchInfo[i] + 1;
+    			matchIndex++;
+    		}
+    	}
+    	return retVal;
+    }
+    
+    public static class MatchType
+    {
+    	public MatchType()
+    	{
+    		this.matchCards = new char[2];
+    		this.matchNumbers = new int[2];
+    	}
+    	@Override
+    	public String toString()
+    	{
+    		int numberOfMatches = 0;
+    		String retval = "";
+    		if(matchNumbers[0] > 0)
+    		{
+    			if(matchNumbers[1] > 0)
+    			{
+    				retval += "Two matches.";
+    				numberOfMatches = 2;
+    			}
+    			else
+    			{
+    				retval += "One match.";
+    				numberOfMatches = 1;
+    			}
+    		}
+    		else
+    		{
+    			retval +="No Matches";
+       		}
+    		return retval;
+    	}
+    	public char[] matchCards = null;
+    	public int[] matchNumbers = null;
+    }
+    
     private static void swap(Card[] cards, int i, int j)
     {
         Card temp = cards[i];
