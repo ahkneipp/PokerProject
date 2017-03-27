@@ -12,7 +12,7 @@ public class HandScorer
 	 * Straight: 4 - X
 	 * 3 of a kind: 3
 	 * 2 pair: 2
-	 * Pair of Jacks or better: 1
+	 * Pair of Jacks or better: 1 X
 	 */
     public static int scoreHand(Hand hand)
     {
@@ -39,20 +39,47 @@ public class HandScorer
     	System.out.println("Royal: " + checkRoyal(hand.getHand()));
     	if(checkStraight(hand.getHand()))
     	{
-    		if(checkFlush(hand.getHand()))
+    		if(checkStraight(hand.getHand()))
     		{
-    			if(checkRoyal(hand.getHand()))
+    			if(checkFlush(hand.getHand()))
     			{
+    				if(checkRoyal(hand.getHand()))
+    				{
     				return 250;//royal flush
+    				}
+    				else
+    				{
+    					return 50;//straight flush
+    				}
     			}
     			else
     			{
-    				return 50;//straight flush
+    				return 4;//straight
     			}
     		}
     		else
     		{
-    			return 4; //straight
+    			if(checkHandMatches(hand.getHand()).matchNumbers[0] > 0)//there's at least one match
+    			{
+    				if(checkHandMatches(hand.getHand()).matchNumbers[0] == 1)//1 or 2 pair
+    				{
+    					if(checkHandMatches(hand.getHand()).matchNumbers[1] == 0)//1 pair
+    					{
+    						if(CardTranslate.getCardVal(new Card('S',checkHandMatches(hand.getHand()).matchCards[0])) >= 11 || CardTranslate.getCardVal(new Card('S',checkHandMatches(hand.getHand()).matchCards[0])) == 1)
+    						{
+    							return 1;//pair of jacks or better
+    						}
+    						else
+    						{
+    							return 0;
+    						}
+    					}
+    					else
+    					{
+    						
+    					}
+    				}
+    			}
     		}
     	}
         return 0;
