@@ -7,36 +7,27 @@ public class HandScorer
 	 * Royal Flush: 250 - X
 	 * Straight Flush: 50 - X
 	 * Four of a kind: 25
-	 * Full house: 6
-	 * Flush: 5
+	 * Full house: 6 X
+	 * Flush: 5 X
 	 * Straight: 4 - X
-	 * 3 of a kind: 3
+	 * 3 of a kind: 3 X
 	 * 2 pair: 2
 	 * Pair of Jacks or better: 1 X
 	 */
     public static int scoreHand(Hand hand)
     {
-    	for(Card c:hand.getHand())
-    	{
-    		c.setSuitId('S');
-    	}
-    	hand.getHand()[0].setFaceId('A');
-    	hand.getHand()[1].setFaceId('2');
-    	hand.getHand()[2].setFaceId('2');
-    	hand.getHand()[3].setFaceId('5');
-    	hand.getHand()[4].setFaceId('5');    	
     	sortHand(hand.getHand());
     	int[] matchInfo = getMatchInfo(hand.getHand());
     	hand.viewHand();
-    	System.out.print("Match info: " );
-    	for(int i = 0; i < 5; i ++)
-    	{
-    		System.out.print(matchInfo[i] + ", ");
-    	}
-    	System.out.println();
-    	System.out.println("Flush: " + checkFlush(hand.getHand()));
-    	System.out.println("Straight: " + checkStraight(hand.getHand()));
-    	System.out.println("Royal: " + checkRoyal(hand.getHand()));
+//    	System.out.print("Match info: " );
+//    	for(int i = 0; i < 5; i ++)
+//    	{
+//    		System.out.print(matchInfo[i] + ", ");
+//    	}
+//    	System.out.println();
+//    	System.out.println("Flush: " + checkFlush(hand.getHand()));
+//    	System.out.println("Straight: " + checkStraight(hand.getHand()));
+//    	System.out.println("Royal: " + checkRoyal(hand.getHand()));
     	if(checkStraight(hand.getHand()))
     	{
     		if(checkStraight(hand.getHand()))
@@ -57,31 +48,54 @@ public class HandScorer
     				return 4;//straight
     			}
     		}
-    		else
-    		{
-    			if(checkHandMatches(hand.getHand()).matchNumbers[0] > 0)//there's at least one match
-    			{
-    				if(checkHandMatches(hand.getHand()).matchNumbers[0] == 1)//1 or 2 pair
-    				{
-    					if(checkHandMatches(hand.getHand()).matchNumbers[1] == 0)//1 pair
-    					{
-    						if(CardTranslate.getCardVal(new Card('S',checkHandMatches(hand.getHand()).matchCards[0])) >= 11 || CardTranslate.getCardVal(new Card('S',checkHandMatches(hand.getHand()).matchCards[0])) == 1)
-    						{
-    							return 1;//pair of jacks or better
-    						}
-    						else
-    						{
-    							return 0;
-    						}
-    					}
-    					else
-    					{
-    						
-    					}
-    				}
-    			}
-    		}
     	}
+		if(checkFlush(hand.getHand()))
+		{
+			return 5;//normal flush
+		}
+		MatchType match = checkHandMatches(hand.getHand());	
+		//System.out.println(match.matchNumbers[0] + " " + match.matchNumbers[1]);
+		if(match.matchNumbers[0] > 0)//there's at least one match
+		{
+			if(match.matchNumbers[0] == 2)//1 or 2 pair
+			{
+				if(match.matchNumbers[1] == 0)//1 pair
+				{
+					if(CardTranslate.getCardVal(new Card('S',match.matchCards[0])) 
+							>= 11 || CardTranslate.getCardVal(new Card('S',match.matchCards[0])) == 1)
+					{
+						return 1;//pair of jacks or better
+					}
+					else
+					{
+						return 0;
+					}
+				}
+				else if(match.matchNumbers[1] == 2)// 2 pair
+				{
+					return 2;//2 pair
+				}
+				else //full house (1,2 case, not 2,1 case);
+				{
+					return 6;
+				}
+			}
+			else if(match.matchNumbers[0] == 3)//full house (2,1 case) or 3 of a kind
+			{
+				if(match.matchNumbers[1] == 2)
+				{
+					return 6; //full house (2,1 case)
+				}
+				else
+				{
+					return 3; //3 of a kind
+				}
+			}
+			else if(match.matchNumbers[0] == 4)// 4 of a kind
+			{
+				return 25;
+			}
+		}		   	
         return 0;
     }
 

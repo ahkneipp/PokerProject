@@ -29,6 +29,6 @@ public static void main(String args[] ){
 	//test.dealHand();
 	test.viewHand();
 	System.out.print("\n\n\n\n\n\n\n");
-	HandScorer.scoreHand(test);
+	System.out.println(HandScorer.scoreHand(test));
 }
 }
