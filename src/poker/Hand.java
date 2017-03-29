@@ -43,6 +43,7 @@ public void rejectCards(){
 		HandScorer hand = new HandScorer();
 		hand.sortHand(five);
 		viewHand();
+		//After you get the score add the pay out to the users balance
 	}
 	else{
 		System.out.println("Which card would you like to reject (Type the number of the card).");
