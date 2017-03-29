@@ -34,6 +34,20 @@ public class Card
     {
     	return this.faceId;
     }
+    /*
+     * The next two methods should never actually be used in the game,
+     *  they're just for testing purposes.
+     */
+    public void setSuitId(char newId)
+    {
+    	this.suitId = newId;
+    	this.cardName = CardTranslate.getNameFromIDs(this.suitId, this.faceId);
+    }
+    public void setFaceId(char newId)
+    {
+    	this.faceId = newId;
+    	this.cardName = CardTranslate.getNameFromIDs(this.suitId, this.faceId);
+    }
     @Override
     public String toString()
     {
