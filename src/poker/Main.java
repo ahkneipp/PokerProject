@@ -28,24 +28,13 @@ public static void main(String args[] ){
 //	deckGen.cardGen();
 //	GamePlay game = new GamePlay();
 //	game.test();
-	JavaDollar dollar = new JavaDollar();
-	System.out.println("Welcome to the game of poker. To play you must pay one Java Dollar.");
-	System.out.println("Do you agree to our terms?");
-	Scanner scan = new Scanner(System.in);
-	String awn = scan.nextLine();
-	if(awn.equals("Yes")){
-		//minus a java dollar and play the game
-		dollar.startGameFee();
-		if (dollar.currentMoney() == -1){
-			System.out.println("Sorry you are too broke to play this game");
-		}
-		else{
+	
 			Hand test = new Hand();
 			test.viewHand();
-		}
+		
 		
 	}
 	
 	
 }
-}
+

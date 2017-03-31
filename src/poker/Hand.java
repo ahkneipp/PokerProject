@@ -25,7 +25,7 @@ public void viewHand(){
 	for (int x = 0; x<5; x++)
 System.out.println(x+1+") "+five[x]);
 	//rejectCards will choose which cards you want to reject
-//rejectCards();//TODO	
+	rejectCards();
 }
 //Gets cards for your hand
 public void dealHand(){
@@ -42,7 +42,7 @@ public void rejectCards(){
 		//IF no calculate their score
 		HandScorer hand = new HandScorer();
 		hand.sortHand(five);
-		viewHand();
+		
 		//After you get the score add the pay out to the users balance
 	}
 	else{
