@@ -46,15 +46,27 @@ public void rejectCards(){
 		//After you get the score add the pay out to the users balance
 	}
 	else{
+		System.out.println("How many cards would you like to reject?");
+		int forLoop = scan.nextInt();
+		int[] arrayOfNumbers= new int [5];
+		for(int x =0; x<forLoop; x++){
+	
+		
 		System.out.println("Which card would you like to reject (Type the number of the card).");
 		//This is just a simple awnser var
-		int awn = scan.nextInt();
-		awn = awn - 1;
+		
+		 arrayOfNumbers[x] = scan.nextInt();
+		}
 		//not sure why this is here don't delete it
 		Deck deck = new Deck();
 		//This deletes cards
-		deck.deleteCards(pointer, awn);
-		pointer++;
+		for(int x =0; x<forLoop; x++){
+			
+			deck.deleteCards(pointer, arrayOfNumbers[x]-1);
+			pointer++;
+		}
+		
+		
 		viewHand();
 		
 	}
