@@ -23,15 +23,22 @@ public void viewHand(){
 	for (int x = 0; x<5; x++)
 System.out.println(x+1+") "+five[x]);
 	//rejectCards will choose which cards you want to rejectln()
-	rejectCards();}
+	rejectCards();
+	}
+	else{
+		for (int x = 0; x<5; x++)
+		System.out.println(x+1+") "+five[x]);
+	}
 	//Viewing the hand
 	
 }
 //Gets cards for your hand
 public void dealHand(){
+	
 	Deck deck = new Deck();
 	five =deck.dealTheCards();
 	pointer = deck.returnPointer();	
+	HandScorer.sortHand(five);
 }
 //Takes cards out of your hand
 public void rejectCards(){
@@ -67,7 +74,7 @@ public void rejectCards(){
 		}
 		
 		
-		viewHand();
+		
 		
 	}
 }
