@@ -31,8 +31,7 @@ public static void main(String args[] ){
 	
 			Hand test = new Hand();
 			test.viewHand();
-		
-		
+			System.out.println("Your score was: " + HandScorer.scoreHand(test));		
 	}
 	
 	

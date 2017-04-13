@@ -20,12 +20,12 @@ public void viewHand(){
 		dealHand();
 		//Just to keep this from
 		controlStatement++;
-	}
-	//Viewing the hand
 	for (int x = 0; x<5; x++)
 System.out.println(x+1+") "+five[x]);
-	//rejectCards will choose which cards you want to reject
-	rejectCards();
+	//rejectCards will choose which cards you want to rejectln()
+	rejectCards();}
+	//Viewing the hand
+	
 }
 //Gets cards for your hand
 public void dealHand(){
