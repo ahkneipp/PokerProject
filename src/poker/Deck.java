@@ -30,8 +30,7 @@ public class Deck
         }
     }
     public Card[] dealTheCards()
-    {
-    	
+    {    	
     	initDeck();
     	this.shuffle();
     	int tempPoint =0;

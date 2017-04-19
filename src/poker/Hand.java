@@ -70,11 +70,7 @@ public void rejectCards(){
 			
 			deck.deleteCards(pointer, arrayOfNumbers[x]-1);
 			pointer++;
-		}
-		
-		
-		
-		
+		}		
 	}
 }
 /**
