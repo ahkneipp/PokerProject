@@ -48,7 +48,7 @@ public void dealHand(){
 }
 //Takes cards out of your hand
 public void rejectCards(){
-	System.out.println("Would you like to reject some cards? (yes/no)");
+	System.out.println("Would you like to reject some cards? (Yes/No)");
 	Scanner scan = new Scanner(System.in);
 	String awnser = scan.nextLine();
 	if (awnser.equals("No")){
