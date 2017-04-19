@@ -42,7 +42,7 @@ public void dealHand(){
 }
 //Takes cards out of your hand
 public void rejectCards(){
-	System.out.println("Would you like to reject some cards?");
+	System.out.println("Would you like to reject some cards? (yes/no)");
 	Scanner scan = new Scanner(System.in);
 	String awnser = scan.nextLine();
 	if (awnser.equals("No")){
@@ -59,7 +59,7 @@ public void rejectCards(){
 		for(int x =0; x<forLoop; x++){
 	
 		
-		System.out.println("Which card would you like to reject (Type the number of the card).");
+		System.out.println("Which card would you like to reject (Type the number a single card you would like to reject).");
 		//This is just a simple awnser var
 		
 		 arrayOfNumbers[x] = scan.nextInt();
