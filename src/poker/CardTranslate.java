@@ -7,11 +7,20 @@
 package poker;
 
 /**
- *
+ * Static class to translate between the name, ids, and values of cards.
  * @author Alex Kneipp
  */
 public class CardTranslate 
 {
+    /**
+     * @param suitId
+     *      The one-character representation of the suit of a card (S,H,C,D)
+     * @param faceId
+     *      The one-character representation of the face of a card 
+     *      (A,2,3,4,5,6,7,8,9,T,J,Q,K)
+     * @return
+     *      A string representation of the card
+     */
     public static String getNameFromIDs(final char suitId, final char faceId)
     {
     	String retval = null;
@@ -74,6 +83,13 @@ public class CardTranslate
     	}
     	return retval;
     }
+    /**
+     * @param card
+     *      Card object with a valid face id
+     * @return
+     *      The value of the card based on it's face.  Ace is 1, King is 13.
+     *      If the card has an invalid face id, the method returns -1
+     */
     public static int getCardVal(Card card)
     {
         switch(card.getFaceId())

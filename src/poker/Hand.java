@@ -61,10 +61,8 @@ public void rejectCards(){
 		System.out.println("How many cards would you like to reject?");
 		int forLoop = scan.nextInt();
 		int[] arrayOfNumbers= new int [5];
-		for(int x =0; x<forLoop; x++){
-	
-		
-		System.out.println("Which card would you like to reject (Type the number a single card you would like to reject).");
+		for(int x =0; x<forLoop; x++){		
+		System.out.println("Which card would you like to reject (Type the number of a single card you would like to reject).");
 		//This is just a simple awnser var
 		
 		 arrayOfNumbers[x] = scan.nextInt();
@@ -72,8 +70,7 @@ public void rejectCards(){
 		//not sure why this is here don't delete it
 		Deck deck = new Deck();
 		//This deletes cards
-		for(int x =0; x<forLoop; x++){
-			
+		for(int x =0; x<forLoop; x++){			
 			deck.deleteCards(pointer, arrayOfNumbers[x]-1);
 			pointer++;
 		}		
