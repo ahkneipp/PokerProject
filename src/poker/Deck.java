@@ -11,7 +11,7 @@ public class Deck
     /**
      * Uses the Fisher-Yates shuffle algorithm to shuffle the deck
      */
-    private void shuffle()// TODO test.
+    private void shuffle()
     {
         Card[] tempArr = new Card[52];
         System.arraycopy(this.cards, 0, tempArr, 0, 52);
@@ -51,7 +51,7 @@ public class Deck
     	return fiveCards;
     }
     
-    public int returnPointer(){
+    public int getPointer(){
     	return pointer;
     }
     

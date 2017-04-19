@@ -37,7 +37,7 @@ public void dealHand(){
 	
 	Deck deck = new Deck();
 	five =deck.dealTheCards();
-	pointer = deck.returnPointer();	
+	pointer = deck.getPointer();	
 	HandScorer.sortHand(five);
 }
 //Takes cards out of your hand
@@ -48,8 +48,7 @@ public void rejectCards(){
 	if (awnser.equals("No")){
 		//IF no calculate their score
 		HandScorer hand = new HandScorer();
-		hand.sortHand(five);
-		
+		hand.sortHand(five);		
 		//After you get the score add the pay out to the users balance
 	}
 	else{
